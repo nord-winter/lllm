@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    container_name: llm-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+  ui:
+    build: .
+    container_name: llm-ui
+    command: python app/ui.py
+    ports:
+      - "7860:7860"
+    depends_on:
+      - api
