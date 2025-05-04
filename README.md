@@ -36,6 +36,7 @@ cd <repository-name>
 docker-compose up --build
 ```
 
+
 После запуска:
 - API будет доступен по адресу: http://localhost:8000
 - Веб-интерфейс будет доступен по адресу: http://localhost:7860
