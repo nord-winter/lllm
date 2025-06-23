@@ -6,12 +6,20 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+      - hf_cache:/root/.cache/huggingface
 
   ui:
     build: .
     container_name: llm-ui
-    command: python app/ui.py
+    command: python -m app.ui
     ports:
       - "7860:7860"
+    volumes:
+      - .:/app
+      - hf_cache:/root/.cache/huggingface
     depends_on:
       - api
+
+volumes:
+  hf_cache:
+    name: huggingface_cache
